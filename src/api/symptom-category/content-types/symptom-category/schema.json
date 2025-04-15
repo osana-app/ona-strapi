@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "symptom_categories",
+  "info": {
+    "singularName": "symptom-category",
+    "pluralName": "symptom-categories",
+    "displayName": "symptom_category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "symptoms_answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::symptoms-answer.symptoms-answer"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "SLEEP_QUALITY",
+        "MOOD",
+        "PHYSICAL",
+        "DIGESTION"
+      ]
+    }
+  }
+}

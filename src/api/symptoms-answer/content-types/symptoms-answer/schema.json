@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "symptoms_answers",
+  "info": {
+    "singularName": "symptoms-answer",
+    "pluralName": "symptoms-answers",
+    "displayName": "symptoms_answer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "SLEEP_QUALITY",
+        "MOOD",
+        "PHYSICAL",
+        "DIGESTION"
+      ]
+    }
+  }
+}

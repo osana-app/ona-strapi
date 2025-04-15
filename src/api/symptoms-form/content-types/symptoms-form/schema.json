@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "symptoms_forms",
+  "info": {
+    "singularName": "symptoms-form",
+    "pluralName": "symptoms-forms",
+    "displayName": "symptoms_form"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "symptom_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::symptom-category.symptom-category"
+    }
+  }
+}

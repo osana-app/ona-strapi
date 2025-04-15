@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "forms",
+  "info": {
+    "singularName": "form",
+    "pluralName": "forms",
+    "displayName": "form"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "form_type": {
+      "type": "enumeration",
+      "enum": [
+        "INITIAL_QUESTIONNAIRE_MEDICAL_HISTORY",
+        "INITIAL_QUESTIONNAIRE_SMOKING_STATUS",
+        "INITIAL_QUESTIONNAIRE_ALCOHOL_STATUS"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "form_answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::form-answer.form-answer"
+    }
+  }
+}

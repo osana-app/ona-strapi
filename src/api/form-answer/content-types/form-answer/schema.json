@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "form_answers",
+  "info": {
+    "singularName": "form-answer",
+    "pluralName": "form-answers",
+    "displayName": "form_answer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "form_type": {
+      "type": "enumeration",
+      "enum": [
+        "INITIAL_QUESTIONNAIRE_MEDICAL_HISTORY",
+        "INITIAL_QUESTIONNAIRE_SMOKING_STATUS",
+        "INITIAL_QUESTIONNAIRE_ALCOHOL_STATUS"
+      ]
+    }
+  }
+}

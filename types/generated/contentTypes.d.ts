@@ -473,6 +473,78 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFormAnswerFormAnswer extends Struct.CollectionTypeSchema {
+  collectionName: 'form_answers';
+  info: {
+    displayName: 'form_answer';
+    pluralName: 'form-answers';
+    singularName: 'form-answer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    form_type: Schema.Attribute.Enumeration<
+      [
+        'INITIAL_QUESTIONNAIRE_MEDICAL_HISTORY',
+        'INITIAL_QUESTIONNAIRE_SMOKING_STATUS',
+        'INITIAL_QUESTIONNAIRE_ALCOHOL_STATUS',
+      ]
+    >;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::form-answer.form-answer'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFormForm extends Struct.CollectionTypeSchema {
+  collectionName: 'forms';
+  info: {
+    displayName: 'form';
+    pluralName: 'forms';
+    singularName: 'form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    form_answers: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::form-answer.form-answer'
+    >;
+    form_type: Schema.Attribute.Enumeration<
+      [
+        'INITIAL_QUESTIONNAIRE_MEDICAL_HISTORY',
+        'INITIAL_QUESTIONNAIRE_SMOKING_STATUS',
+        'INITIAL_QUESTIONNAIRE_ALCOHOL_STATUS',
+      ]
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::form.form'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -505,9 +577,111 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSymptomCategorySymptomCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'symptom_categories';
+  info: {
+    description: '';
+    displayName: 'symptom_category';
+    pluralName: 'symptom-categories';
+    singularName: 'symptom-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.Enumeration<
+      ['SLEEP_QUALITY', 'MOOD', 'PHYSICAL', 'DIGESTION']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::symptom-category.symptom-category'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    symptoms_answers: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::symptoms-answer.symptoms-answer'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSymptomsAnswerSymptomsAnswer
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'symptoms_answers';
+  info: {
+    displayName: 'symptoms_answer';
+    pluralName: 'symptoms-answers';
+    singularName: 'symptoms-answer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.Enumeration<
+      ['SLEEP_QUALITY', 'MOOD', 'PHYSICAL', 'DIGESTION']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::symptoms-answer.symptoms-answer'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSymptomsFormSymptomsForm
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'symptoms_forms';
+  info: {
+    displayName: 'symptoms_form';
+    pluralName: 'symptoms-forms';
+    singularName: 'symptoms-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::symptoms-form.symptoms-form'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    symptom_categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::symptom-category.symptom-category'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTestTest extends Struct.CollectionTypeSchema {
   collectionName: 'tests';
   info: {
+    description: '';
     displayName: 'test';
     pluralName: 'tests';
     singularName: 'test';
@@ -516,6 +690,7 @@ export interface ApiTestTest extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1042,7 +1217,12 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::form-answer.form-answer': ApiFormAnswerFormAnswer;
+      'api::form.form': ApiFormForm;
       'api::global.global': ApiGlobalGlobal;
+      'api::symptom-category.symptom-category': ApiSymptomCategorySymptomCategory;
+      'api::symptoms-answer.symptoms-answer': ApiSymptomsAnswerSymptomsAnswer;
+      'api::symptoms-form.symptoms-form': ApiSymptomsFormSymptomsForm;
       'api::test.test': ApiTestTest;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
