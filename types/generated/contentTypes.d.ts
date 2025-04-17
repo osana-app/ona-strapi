@@ -476,6 +476,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiFormAnswerFormAnswer extends Struct.CollectionTypeSchema {
   collectionName: 'form_answers';
   info: {
+    description: '';
     displayName: 'form_answer';
     pluralName: 'form-answers';
     singularName: 'form-answer';
@@ -489,9 +490,15 @@ export interface ApiFormAnswerFormAnswer extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     form_type: Schema.Attribute.Enumeration<
       [
-        'INITIAL_QUESTIONNAIRE_MEDICAL_HISTORY',
-        'INITIAL_QUESTIONNAIRE_SMOKING_STATUS',
-        'INITIAL_QUESTIONNAIRE_ALCOHOL_STATUS',
+        'INITIAL_QUESTIONNAIRE_HEALTH_GOAL_AND_DURATION',
+        'INITIAL_QUESTIONNAIRE_PERSONAL_MEASUREMENTS',
+        'INITIAL_QUESTIONNAIRE_RECENT_WEIGHT_CHANGE',
+        'INITIAL_QUESTIONNAIRE_MEDICAL_CONDITIONS',
+        'INITIAL_QUESTIONNAIRE_LIFESTYLE',
+        'INITIAL_QUESTIONNAIRE_DIGESTION',
+        'INITIAL_QUESTIONNAIRE_ACTIVITY_LEVEL',
+        'INITIAL_QUESTIONNAIRE_STRESS',
+        'INITIAL_QUESTIONNAIRE_MENSTRUATION',
       ]
     >;
     label: Schema.Attribute.String;
@@ -511,6 +518,7 @@ export interface ApiFormAnswerFormAnswer extends Struct.CollectionTypeSchema {
 export interface ApiFormForm extends Struct.CollectionTypeSchema {
   collectionName: 'forms';
   info: {
+    description: '';
     displayName: 'form';
     pluralName: 'forms';
     singularName: 'form';
@@ -529,9 +537,15 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     >;
     form_type: Schema.Attribute.Enumeration<
       [
-        'INITIAL_QUESTIONNAIRE_MEDICAL_HISTORY',
-        'INITIAL_QUESTIONNAIRE_SMOKING_STATUS',
-        'INITIAL_QUESTIONNAIRE_ALCOHOL_STATUS',
+        'INITIAL_QUESTIONNAIRE_HEALTH_GOAL_AND_DURATION',
+        'INITIAL_QUESTIONNAIRE_PERSONAL_MEASUREMENTS',
+        'INITIAL_QUESTIONNAIRE_RECENT_WEIGHT_CHANGE',
+        'INITIAL_QUESTIONNAIRE_MEDICAL_CONDITIONS',
+        'INITIAL_QUESTIONNAIRE_LIFESTYLE',
+        'INITIAL_QUESTIONNAIRE_DIGESTION',
+        'INITIAL_QUESTIONNAIRE_ACTIVITY_LEVEL',
+        'INITIAL_QUESTIONNAIRE_STRESS',
+        'INITIAL_QUESTIONNAIRE_MENSTRUATION',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

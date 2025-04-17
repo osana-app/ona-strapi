@@ -4,7 +4,8 @@
   "info": {
     "singularName": "form",
     "pluralName": "forms",
-    "displayName": "form"
+    "displayName": "form",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,9 +14,15 @@
     "form_type": {
       "type": "enumeration",
       "enum": [
-        "INITIAL_QUESTIONNAIRE_MEDICAL_HISTORY",
-        "INITIAL_QUESTIONNAIRE_SMOKING_STATUS",
-        "INITIAL_QUESTIONNAIRE_ALCOHOL_STATUS"
+        "INITIAL_QUESTIONNAIRE_HEALTH_GOAL_AND_DURATION",
+        "INITIAL_QUESTIONNAIRE_PERSONAL_MEASUREMENTS",
+        "INITIAL_QUESTIONNAIRE_RECENT_WEIGHT_CHANGE",
+        "INITIAL_QUESTIONNAIRE_MEDICAL_CONDITIONS",
+        "INITIAL_QUESTIONNAIRE_LIFESTYLE",
+        "INITIAL_QUESTIONNAIRE_DIGESTION",
+        "INITIAL_QUESTIONNAIRE_ACTIVITY_LEVEL",
+        "INITIAL_QUESTIONNAIRE_STRESS",
+        "INITIAL_QUESTIONNAIRE_MENSTRUATION"
       ]
     },
     "title": {
